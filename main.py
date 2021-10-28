@@ -62,6 +62,7 @@ def timeFiller(colors, positions):
     con un retardo de un segundo, aunque el tiempo puede ser cambiado
     a preferencia.
     """
+    
     for i in[0,1]:
         for x in[0,1,2]:
             if positions[i][x] != 0:
@@ -98,6 +99,7 @@ def fillCups():
         ["    ","    ","    "]
     ]
     printCups(colors)
+    time.sleep(2)
     timeFiller(colors, randomPositions())
 
     #---Función de inicio del juego
@@ -108,16 +110,23 @@ def startGame():
     del sistema.
     """
     selection = ""
-    print("Bienvenido al juego de llenado de vasos. \nPara iniciar introduce el número 1.")
+    print("Bienvenido al juego de llenado de vasos. \nPara iniciar introduce el número 1. \nPara salir introduce el numero 2.")
     while selection != "1":
         selection = input()
-        if selection != "1":
+        if selection != "1" and selection != "2":
             print("Esa no es una opción en el sistema")
-        else:
+        elif selection == "2":
+            print("Esa opción aun no está permitida")
+        elif selection == "1":
             fillCups()
-            print("Para salir introduce el número 2.")
-            selection = input()
-            exit()
+            while selection != "2":
+                print("Para salir introduce el número 2.")
+                selection = input()
+                if selection == "2":
+                    exit()
+                else:
+                    print("Esa no es una opción en el sistema")
+
     return 0;
 
 startGame()
