@@ -1,5 +1,6 @@
 #Importación de las librerias utilizadas
 import random as rnd
+import time
 
 #--------Generación de las funciones--------#
     #---Función para imprimir el llenado de vasos
@@ -52,6 +53,7 @@ def timeFiller(colors, positions):
                 else:
                     colors[i][x] = "Rojo"
             printCups(colors)
+            time.sleep(1)
 
     #Función para iniciar el llenado de los vasos
 def fillCups():
